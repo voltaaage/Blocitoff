@@ -1,2 +1,24 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<br>
+<div class="jumbotron">
+  <h1>BlocItOff</h1>
+  <p>BlocItOff is a personal to-do list that helps you manage your tasks!</p>
+  <p>
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
+  </p>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h2>Self-destructing Tasks</h2>
+    <p>Your tasks will automatically remove themselves within 7 days. Better finish the task quickly!</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Create New Tasks!</h2>
+    <p>BlocItOff will allow you to create multiple tasks! And then once the task is completed, Bloc it off!</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Prioritize!</h2>
+    <p>See how many days remain before a to-do item is automatically deleted and prioritize what needs to be done soon!</p>
+  </div>
+</div>
