@@ -76,4 +76,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # http://fongfan-blocitoff.herokuapp.com
+  config.action_mailer.default_url_options = { host: 'fongfan-blocitoff.herokuapp.com'}
+
+  config.mailer_sender = "Fong.fan.90@gmail.com"
 end

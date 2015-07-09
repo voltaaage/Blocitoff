@@ -1,13 +1,11 @@
 source 'https://rubygems.org'
 
-# Bootstrap
-gem 'bootstrap-sass'
+# Added gems
+gem 'bootstrap-sass' # Bootstrap
+gem 'devise' # Devise - user authentication
+gem 'figaro', '1.0' # Figaro
+gem 'faker' # Faker - seed data
 
-# Devise - user authentication
-gem 'devise'
-
-# Figaro 
-gem 'figaro', '1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
