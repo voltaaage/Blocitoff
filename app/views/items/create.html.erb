@@ -1,0 +1,14 @@
+<h1>New To-Do Item</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines</p>
+    <ul>
+      <li>To Do List items will self-destruct in 7 days</li>
+      <li>If you don't complete it by then, it must not be very important</li>
+      <li>Get it done and then Bloc It Off :) </li>
+    </ul>
+  </div>
+  <%= render partial: 'form', locals: {item: @item} %>
+  
+</div>
