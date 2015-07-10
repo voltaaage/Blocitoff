@@ -1,7 +1,8 @@
 <h1><%= @user.name %></h1>
 <small><%= @user.email %></small>
 <br><br>
+<% @user.items.each do |item| %>
+  <%= render partial: 'items/item', collection: @items %>
+<% end %>
 
-<div class="row">
-  <%= render partial: "items/form", locals: {user: @user} %>
-</div>
+<%= render partial: 'items/form', locals: {user: @user} %>
