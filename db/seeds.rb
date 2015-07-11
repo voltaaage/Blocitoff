@@ -8,3 +8,32 @@
 
 require 'Faker'
 
+admin = User.new(
+  name: 'Admin User',
+  email: 'admin@example.com',
+  password: 'helloworld'
+)
+admin.skip_confirmation!
+admin.save!
+
+member = User.new(
+  name: 'Member user',
+  email: 'moderator@example.com',
+  password: 'helloworld'
+)
+member.skip_confirmation!
+member.save
+
+users = User.all
+
+10.times do
+  Item.create!(
+    user: users.sample,
+    name: Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraph,
+    due_date: Faker::Date.forward(7)
+  )
+end 
+
+puts "#{User.count} users created"
+puts "#{Item.count} to-do items created"
