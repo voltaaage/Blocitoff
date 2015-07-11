@@ -1,4 +1,11 @@
 <div class="row">
-  <h4><%= item.name %></h4> | Due on <%= item.due_date %>
-  <small><%= item.description %></small>
+  <div class="col-md-3">
+    <h5><%= item.name %></h5>
+  </div>
+  <div class="col-md-3">
+    <small>Due on <%= item.due_date %></small>
+  </div>
+  <div class="col-md-6">
+    <%= item.description %>
+  </div>
 </div>
