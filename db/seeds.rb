@@ -26,7 +26,7 @@ member.save
 
 users = User.all
 
-10.times do
+60.times do
   Item.create!(
     user: users.sample,
     name: Faker::Lorem.sentence,

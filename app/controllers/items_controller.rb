@@ -20,10 +20,13 @@ class ItemsController < ApplicationController
     @user = @item.user
     if @item.destroy
       flash[:notice] = "Item deleted successfully."
-      redirect_to [@user]
     else
       flash[:error] = "There was an error deleting item."
-      redirect_to [@user]
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
     
   end

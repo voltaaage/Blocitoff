@@ -1,14 +1,19 @@
 <h1><%= @user.name %></h1>
-<small><%= @user.email %></small>
+<small>
+  <%= @user.email %><br>
+  <div class='js-items-count'>
+    <%= pluralize(@user.items.count, 'task') %> to do!
+  </div>
+</small>
 <br><br>
 <div class="row">
   <div class="col-md-1">
     <h3>Done?</h3>
   </div>  
-  <div class="col-md-2">
+  <div class="col-md-3">
     <h3>Task</h3>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-3">
     <h3>Due Date</h3>
   </div>
   <div class="col-md-4">
