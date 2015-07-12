@@ -11,6 +11,35 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @user = @item.user
+    if @item.destroy
+      flash[:notice] = "Item deleted successfully."
+      redirect_to [@user]
+    else
+      flash[:error] = "There was an error deleting item."
+      redirect_to [@user]
+    end
+    
+  end
+
+  def complete
+    @item = Item.find(params[:id])
+    # try completing the item in here
+    if @item.complete_task
+      flash[:notice] = "Item deleted successfully."
+      redirect_to [@user]
+    else
+      flash[:error] = "There was an error deleting item."
+      redirect_to [@user]
+    end
+
+  end
 
   private
 

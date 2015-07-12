@@ -31,7 +31,8 @@ users = User.all
     user: users.sample,
     name: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    due_date: Faker::Date.forward(7)
+    due_date: Faker::Date.forward(7),
+    completed: false
   )
 end 
 

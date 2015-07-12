@@ -2,18 +2,21 @@
 <small><%= @user.email %></small>
 <br><br>
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-1">
+    <h3>Done?</h3>
+  </div>  
+  <div class="col-md-2">
     <h3>Task</h3>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <h3>Due Date</h3>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <h3>Description</h3>
   </div>
 </div>
 
-<%= render partial: 'items/item', collection: @items %>
+<%= render partial: 'items/item',locals: { user: @user }, collection: @items %>
 <br>
 
-<%= render partial: 'items/form', locals: {user: @user} %>
+<%= render partial: 'items/form', locals: { user: @user } %>
