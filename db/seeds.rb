@@ -11,7 +11,8 @@ require 'Faker'
 admin = User.new(
   name: 'Admin User',
   email: 'admin@example.com',
-  password: 'helloworld'
+  password: 'helloworld',
+  role: 'admin'
 )
 admin.skip_confirmation!
 admin.save!
@@ -19,7 +20,8 @@ admin.save!
 member = User.new(
   name: 'Member user',
   email: 'moderator@example.com',
-  password: 'helloworld'
+  password: 'helloworld',
+  role: 'member'
 )
 member.skip_confirmation!
 member.save

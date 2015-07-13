@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def create
     @item = current_user.items.new(item_params)
-
+    authorize @item
     if @item.save
       flash[:notice] = "To Do Item was saved"
       redirect_to [current_user]
@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @user = @item.user
+    authorize @item
     if @item.destroy
       flash[:notice] = "Item deleted successfully."
     else

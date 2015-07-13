@@ -24,4 +24,6 @@
 <%= render partial: 'items/item',locals: { user: @user }, collection: @items %>
 <br>
 
-<%= render partial: 'items/form', locals: { user: @user } %>
+<% if policy(Item.new).create? %>
+  <%= render partial: 'items/form', locals: { user: @user } %>
+<% end %>
