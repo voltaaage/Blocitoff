@@ -5,7 +5,7 @@ gem 'bootstrap-sass' # Bootstrap
 gem 'devise' # Devise - user authentication
 gem 'figaro', '1.0' # Figaro
 gem 'faker' # Faker - seed data
-
+gem 'pundit' # Pundit - user roles
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
