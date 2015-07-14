@@ -4,8 +4,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:show] do
-    resources :items, only: [:index, :create, :show, :destroy], controller: 'complete'
+    resources :items, only: [:index, :create, :show, :destroy]
   end
+
+  resources :items, only: [] do
+    put 'complete'
+  end
+
   
   
 

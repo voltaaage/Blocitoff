@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def create
     @item = current_user.items.new(item_params)
+    @item.completed = false
     authorize @item
     if @item.save
       flash[:notice] = "To Do Item was saved"
@@ -27,21 +28,23 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.js
+      format.js {render :nothing => true}
     end
     
   end
 
   def complete
-    @item = Item.find(params[:id])
-    @item.completed = false
-    # try completing the item in here
-    if @item.complete_task
-      flash[:notice] = "Item deleted successfully."
-      redirect_to [root]
+    @item = Item.find(params[:item_id])
+    authorize @item
+    if @item.complete_task?
+      flash[:notice] = "Item was completed successfully."
     else
-      flash[:error] = "There was an error deleting item."
-      redirect_to [@user]
+      flash[:error] = "There was an error completing the item."
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
 
   end

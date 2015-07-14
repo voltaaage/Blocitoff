@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <%= render partial: 'items/item',locals: { user: @user }, collection: @items %>
+      <%= render partial: 'items/item',locals: { user: @user }, collection: @items.select {|task| !(task.completed)} %>
     </tbody>
   </table>
 </div>
@@ -28,3 +28,20 @@
 <% if policy(Item.new).create? %>
   <%= render partial: 'items/form', locals: { user: @user } %>
 <% end %>
+
+<br><br>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th class="due-date">Completed</th>
+        <th>Description</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'items/completed',locals: { user: @user }, collection: @items.select {|task| task.completed}, as: :item %>
+    </tbody>
+  </table>
+</div>
