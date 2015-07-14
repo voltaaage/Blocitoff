@@ -1,14 +1,7 @@
-<div class="media" id="item-<%= item.id %>">
-  <div class="col-md-1">
-    <%= link_to "", [user,item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
-  </div>
-  <div class="col-md-3">
-    <h5><%= item.name %></h5>
-  </div>
-  <div class="col-md-3">
-    <small>Due on <%= item.due_date %></small>
-  </div>
-  <div class="col-md-4">
-    <%= item.description %>
-  </div>
-</div>
+<tr id="item-<%= item.id %>">
+  <td><%= link_to "", complete_path(item), remote: true, class: 'glyphicon glyphicon-ok' %></td>
+  <td><%= item.completed %> | <%= item.name %></td>
+  <td class="due-date"><%= item.due_date %></td>
+  <td><%= item.description %></td>
+  <td><%= link_to "", [user,item], method: :delete, remote: true, class: 'glyphicon glyphicon-remove', data: {confirm: 'Are you sure?' } %></td>
+</tr>

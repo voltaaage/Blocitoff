@@ -6,23 +6,24 @@
   </div>
 </small>
 <br><br>
-<div class="row">
-  <div class="col-md-1">
-    <h3>Done?</h3>
-  </div>  
-  <div class="col-md-3">
-    <h3>Task</h3>
-  </div>
-  <div class="col-md-3">
-    <h3>Due Date</h3>
-  </div>
-  <div class="col-md-4">
-    <h3>Description</h3>
-  </div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Complete</th>
+        <th>Task</th>
+        <th class="due-date">Due Date</th>
+        <th>Description</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'items/item',locals: { user: @user }, collection: @items %>
+    </tbody>
+  </table>
 </div>
 
-<%= render partial: 'items/item',locals: { user: @user }, collection: @items %>
-<br>
 
 <% if policy(Item.new).create? %>
   <%= render partial: 'items/form', locals: { user: @user } %>
