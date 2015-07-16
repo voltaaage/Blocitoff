@@ -28,13 +28,14 @@ member.save
 
 users = User.all
 
-60.times do
+50.times do
   Item.create!(
     user: users.sample,
     name: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
     due_date: Faker::Date.forward(7),
-    completed: false
+    completed: false,
+    created_at: Faker::Date.backward(14)
   )
 end 
 
