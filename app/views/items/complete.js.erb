@@ -1,6 +1,6 @@
-<% if @item.complete_task? %>
+<% if @item.mark_as_complete %>
  $('#item-' +<%= @item.id %>).remove();
-  $('.js-items-count').html("<%= pluralize(@item.user.items.count,'tasks') %> to do!");
+ $('.js-items-count').html("<%= pluralize(@item.user.items.count,'tasks') %> to do!");
 <% else %>
   $('#item-' +<%= @item.id %>).prepend("<div class='alert alert-danger'><%=flash[:error] %></div>")
 <% end %>

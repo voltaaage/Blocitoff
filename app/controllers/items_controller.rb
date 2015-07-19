@@ -36,7 +36,8 @@ class ItemsController < ApplicationController
   def complete
     @item = Item.find(params[:item_id])
     authorize @item
-    if @item.complete_task?
+    @item.mark_as_complete
+    if @item.save
       flash[:notice] = "Item was completed successfully."
     else
       flash[:error] = "There was an error completing the item."
