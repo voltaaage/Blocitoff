@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    @user = @item.user
     authorize @item
     if @item.destroy
       flash[:notice] = "Item deleted successfully."
@@ -28,7 +27,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.js {render :nothing => true}
+      format.js 
     end
     
   end
